@@ -1,0 +1,20 @@
+<h1>My page</h1>
+
+<h2>What are you doing man?</h2>
+<% remote_form_for [@current_user, @post || Post.new] do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.text_area :body, :size => '60x4' %>
+  </p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+
+<% unless @current_user.followeds_posts.empty? %>
+  <div id="posts">
+    <%= render :partial => @current_user.followeds_posts %>
+  </div>
+<% end %>

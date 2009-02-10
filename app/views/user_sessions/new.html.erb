@@ -1,0 +1,17 @@
+<h1>Login</h1>
+
+<% form_for(:user, :url => user_session_path) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :email %><br />
+    <%= f.text_field :email, :maxlength => 100, :size => 30 %>
+  </p>
+  <p>
+    <%= f.label :password %><br />
+    <%= f.password_field :password, :maxlength => 20, :size => 30 %>
+  </p>
+  <p>
+    <%= f.submit "Login" %>
+  </p>
+<% end %>

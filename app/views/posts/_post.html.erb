@@ -1,0 +1,3 @@
+<% div_for post do %>
+  <%= h(post.body) %>, posted at <%= time_ago_in_words(post.created_at)%>, by <%= post.user.email %>
+<% end %>

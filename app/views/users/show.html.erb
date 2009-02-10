@@ -1,0 +1,15 @@
+<h1>Page for <%= @user.email %></h1>
+
+<% if @current_user && @current_user.id != @user.id %>
+  <% if @current_user.followeds.map { |u| u.id }.include? @user.id %>
+    <%= link_to 'Unfollow this person', user_follower_path(@user, @current_user), :method => :delete %>
+  <% else %>
+    <%= link_to 'Follow this person', user_followers_path(@user), :method => :post %>
+  <% end %>
+<% end %>
+
+<% unless @user.posts.empty? %>
+  <div id="posts">
+    <%= render :partial => @user.posts %>
+  </div>
+<% end %>
